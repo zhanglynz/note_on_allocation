@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\headsep 0.4 true cm
+\pagestyle{plain}
+\topmargin 5pt
+\oddsidemargin 16pt
+\textheight 22.5 true cm
+\textwidth 15.5 true cm
+\parskip 0.08cm
+\renewcommand\baselinestretch{1.6}
+\parindent=20pt
+%\nofiles
+\def\hang{\hangindent\parindent}
+\def\re{\par\hang\noindent}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\beqn{\begin{eqnarray}}
+\def\eeqn{\end{eqnarray}}
+\def\beqn*{\begin{eqnarray*}}
+\def\eeqn*{\end{eqnarray*}}
+
+\usepackage{graphicx}
+
+\title{A Note on Sample Allocation}
+
+\vskip 0.3cm
+\author{Lingyun Zhang\thanks{Stats New Zealand,  Wellington, Email: larry.zhang@stats.govt.nz The views expressed in this article are those of the author and not those of the Stats New Zealand.}}
+\vskip 0.3cm
+
+\begin{document}
+\date{}
+\maketitle
+
+
+\begin{abstract}
+To be written
+
+\noindent {\bf KEY WORDS}: To be written
+
+\end{abstract}
+
+\section{Introduction}
+
+\section{A unified formula}
+
+\section{Comparison}
+
+\section{Concluding remarks}
+
+\section*{Appendix}
+
+Throughout this section, we regard ${x_1, x_2, \ldots, x_n}$ as $n$ given positive numbers.
+
+\noindent
+{\bf Lemma 1:} Define function
+$$
+f(a) := \frac{\sum_{i=1}^n x_i ^{2a}}{\left(\sum_{i=1}^n x_i^a\right)^2}.
+$$
+Then, $f(a)$ is an increasing function as $a$ increases.
+
+\noindent
+{\bf Proof}. We need only show that
+$$
+g(a):=\ln(f(a))=\ln\left(\sum_{i=1}^n x_i^{2a}\right)-2\ln\left(\sum_{i=1}^n x_i^a\right)
+$$
+is an increasing function. Taking derivative, we have
+\begin{eqnarray*}
+g^\prime (a) &=&\frac{2\sum_{i=1}^n x_i^{2a}\ln(x_i)}{\sum_{i=1}^n x_i^{2a}}-\frac{2\sum_{i=1}^n x_i^a\ln(x_i)}{\sum_{i=1}^n x_i^a}\\
+&=&\frac{2\left(\sum_{i=1}^n x_i^a \sum_{i=1}^n x_i^{2a}\ln(x_i) - \sum_{i=1}^n x_i^{2a} \sum_{i=1}^n x_i^a\ln(x_i)\right)}{\sum_{i=1}^n x_i^{2a}\sum_{i=1}^n x_i^a}.
+\end{eqnarray*}
+Note that the sign (i.e. positive or negative) of $g^\prime(a)$ is determined by the numerator in the above equation. We denote the numerator by $I$, and we have
+\begin{eqnarray*}
+I &=& 2\sum_{i=1}^{n-1}\sum_{j>i}^n\left\{
+[x_i^a x_j^{2a}\ln(x_j) + x_j^a x_i^{2a}\ln(x_i)]
+-[x_i^{2a} x_j^a \ln(x_j) + x_j^{2a} x_i^{a} \ln(x_i)]
+\right\}\\
+&=& 2\sum_{i=1}^{n-1}\sum_{j>i}^n\left\{
+x_i^a x_j^a\left[x_j^a \ln(x_j) + x_i^a \ln(x_i)\right] -
+x_i^a x_j^a\left[x_i^a \ln(x_j) + x_j^a \ln(x_i)\right]
+\right\}\\
+&=& 2\sum_{i=1}^{n-1}\sum_{j>i}^n x_i^a x_j^a (x_i^a - x_j^a)\left[\ln(x_i) - \ln(x_j)\right]\ge 0,
+\end{eqnarray*}
+which completes the proof.
+
+\noindent
+{\bf Lemma 2:} Define function
+$$
+g(a) := \frac{\sum_{i=1}^n (x_i + a)}{\left(\sum_{i=1}^n \sqrt{x_i + a}\right)^2}.
+$$
+Then, $g(a)$ is a decreasing function as $a$ increases.
+
+\noindent
+{\bf Proof}. It is sufficient to show that
+$$
+h(a):=\ln\left(g(a)\right)=\ln\left(\sum_{i=1}^n (x_i+a)\right) - 2\ln\left(\sum_{i=1}^n \sqrt{x_i + a}\right).
+$$
+is a decreasing function. Taking derivative, we have
+\begin{eqnarray*}
+h^\prime(a) &=& \frac{n}{\sum_{i=1}^n (x_i+a)} - 2\frac{\sum_{i=1}^n (x_i + a)^{-1/2} / 2}{\sum_{i=1}^n \sqrt{x_i + a}}\\
+&=&\left(\frac{\sum_{i=1}^n (x_i+a)}{n}\right)^{-1}-\frac{\sum_{i=1}^n (x_i+a)^{-1/2}/n}{\sum_{i=1}^n (x_i+a)^{1/2}/n}.
+\end{eqnarray*}
+Let $u_i = (x_i+a)^{1/2}$ for $i=1, \ldots, n$. Then,
+\begin{eqnarray*}
+h^{\prime}(a) &=& \left(\frac{\sum_{i=1}^n u_i^2}{n}\right)^{-1} - \left(\frac{\sum_{i=1}^n u_i}{n}\frac{n}{\sum_{i=1}^n u_i^{-1}}\right)^{-1} \le 0,
+\end{eqnarray*}
+which follows from that 
+$$
+\frac{\sum_{i=1}^n u_i}{n} \le \sqrt{\frac{\sum_{i=1}^n u_i^2}{n}},
+$$
+and
+$$
+\frac{n}{\sum_{i=1}^n u_i^{-1}} \le \sqrt{\frac{\sum_{i=1}^n u_i^2}{n}}.
+$$
+At this point, the proof is completed.
+
+\end{document}
